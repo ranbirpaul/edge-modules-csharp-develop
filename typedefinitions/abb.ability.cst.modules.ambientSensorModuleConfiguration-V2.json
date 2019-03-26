@@ -1,0 +1,59 @@
+{
+  "model": "abb.ability.configuration",
+  "typeId": "abb.ability.cst.modules.ambientSensorModuleConfiguration",
+  "version": "2.0.0",
+  "name": "Ambient Sensor's Edge Module's configuration",
+  "description": "Configuration model of abb.ability.cst.modules.ambientSensorModule",
+  "properties": {
+    "docker": {
+      "env": {
+        "description": "Map of environment variables to pass to the module",
+        "dataType": "map",
+        "values": {
+          "dataType": "string"
+        }
+      },
+      "replicas": {
+        "description": "How many replicas of this module should be created",
+        "dataType": "integer",
+        "minimum": 1
+      },
+      "image": {
+        "description": "Docker image of this module",
+        "dataType": "string",
+        "value": "cstAmbientSensorModule:latest",
+        "mandatory": true
+      }
+    },
+    "temperatureSendingInterval": {
+      "dataType": "number",
+      "unit": "s",
+      "description": "Time interval of sending temperature measurements."
+    },
+    "humiditySendingInterval": {
+      "dataType": "number",
+      "unit": "s",
+      "description": "Time interval of sending humidity measurements."
+    },
+    "pressureSendingInterval": {
+      "dataType": "number",
+      "unit": "s",
+      "description": "Time interval of sending pressure measurements."
+    },
+    "criticalTemperature": {
+      "dataType": "number",
+      "unit": "°C",
+      "description": "Temperature treshold for generating an alarm. If temperature measurement exceeds criticalTemperature, highTemperature alarm will be activated. Alarm desactivation occurs when temperature falls below (criticalTemperature - 20)"
+    }    
+  },
+  "attributes": {
+    "unit": {
+      "dataType": "string",
+      "appliesTo": [
+        "number",
+        "integer",
+        "array"
+      ]
+    }
+  }
+}

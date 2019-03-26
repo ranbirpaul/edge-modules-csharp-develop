@@ -1,0 +1,285 @@
+{
+  "model": "abb.ability.configuration",
+  "typeId": "abb.ability.configuration.edge.sample",
+  "version": "4.0.0",
+  "description": "Edge gateway configuration. Once type inheritance is supported, it must be a base type of all other edge configuration model types",
+  "attributes": {
+    "minimum": {
+      "dataType": "integer",
+      "appliesTo": [
+        "integer"
+      ]
+    },
+    "maximum": {
+      "dataType": "integer",
+      "appliesTo": [
+        "integer"
+      ]
+    }
+  },
+  "properties": {
+    "systemModules": {
+      "edge-proxy": {
+        "image": {
+          "description": "Edge proxy image",
+          "isMandatory": true,
+          "dataType": "string",
+          "value": "abbability.azurecr.io/edge/proxy-develop:latest"
+        }
+      },
+      "edge-broker": {
+        "image": {
+          "description": "Edge broker image",
+          "isMandatory": true,
+          "dataType": "string",
+          "value": "abbability.azurecr.io/edge/broker-develop:latest"
+        },
+        "configuration": {
+          "maxMessageSize": {
+            "description": "Maximum size limit of one message (KB). Zero (0) stands for unlimited.",
+            "isMandatory": false,
+            "dataType": "number",
+            "value": 0
+          },
+          "persistence": {
+            "enabled": {
+              "description": "Enable persistence in broker",
+              "isMandatory": false,
+              "dataType": "boolean",
+              "value": true
+            },
+            "maxStorageSize": {
+              "description": "Maximum size of the storage (MB). Zero (0) stands for unlimited.",
+              "isMandatory": false,
+              "dataType": "number",
+              "value": 0
+            }
+          }
+        }
+      }
+    },
+    "modules": {
+      "dataType": "map",
+      "values": {
+        "device": {
+          "description": "Device type (must extend abb.ability.device.edge.module). This model will be linked to the edge device model via a 'modules' reference",
+          "dataType": "string"
+        },
+        "configuration": {
+          "description": "Optional configuration type (must extend abb.ability.configuration.edge.module). If present, and docker property is set as well - docker settings will be passed to this configuration model. If not present, it is expected to be created via relatedModels in the device type of this module. Note that the container won't be created until the configuration model created/updated message for this module is delivered to the edge.",
+          "dataType": "string"
+        },
+        "docker": {
+          "env": {
+            "dataType": "map",
+            "values": "string"
+          },
+          "ports": {
+            "tcp": {
+              "dataType": "map",
+              "values": "integer"
+            },
+            "udp": {
+              "dataType": "map",
+              "values": "integer"
+            }
+          },
+          "volumePath": {
+            "description": "Path of the mounted volume. If not specified, container volume will be mounted as 'files' directory",
+            "dataType": "string"
+          },
+          "image": {
+            "description": "Docker image",
+            "dataType": "string"
+          }
+        }
+      },
+      "value": {
+        "tutorialModule": {
+          "device": {
+            "value": "abb.ability.device.edge.modules.csharp.sample@4"
+          }
+	}
+      }
+    },
+    "maxStoredMessages": {
+      "description": "Maximum number of undelivered messages that can be stored on this edge",
+      "dataType": "integer"
+    },
+    "telemetry": {
+      "serialization": {
+        "description": "Serialization format",
+        "dataType": "string",
+        "enum": [
+          "json"
+        ]
+      },
+      "compression": {
+        "description": "Compression format",
+        "dataType": "string",
+        "enum": [
+          "gzip",
+          "deflate"
+        ]
+      }
+    },
+    "validation": {
+      "input": {
+        "description": "Whether to validate input messages",
+        "dataType": "boolean",
+        "value": false
+      },
+      "output": {
+        "description": "Whether to validate output messages",
+        "dataType": "boolean",
+        "value": false
+      }
+    },
+    "maxDeviceMessageSize": {
+      "description": "Maximum device message size, in kb",
+      "dataType": "integer",
+      "isMandatory": true,
+      "value": 256,
+      "minimum": 2
+    },
+    "heartbeatFrequency": {
+      "description": "Heartbeat frequency, in seconds",
+      "dataType": "integer",
+      "isMandatory": true,
+      "value": 300
+    },
+    "reportingFrequency": {
+      "description": "System telemetry reporting frequency (cpu, memory, storage %), in seconds",
+      "dataType": "integer",
+      "isMandatory": true,
+      "value": 600
+    },
+    "batch": {
+      "entries": {
+        "description": "Number of entries to batch together. If both entries and duration = 0, batching is disabled. If a message size exceeds maximum size, batch will be sent irregardless of the number of entries",
+        "dataType": "integer",
+        "minimum": 0,
+        "maximum": 500
+      },
+      "duration": {
+        "description": "Limits time elapsed from the start of the batch, in milliseconds. Make sure that this value is smaller than a broker retry duration to avoid duplication of QoS 1 messages",
+        "dataType": "integer",
+        "minimum": 0
+      },
+      "types": {
+        "description": "Comma separated list of message types to batch. Currently supported: timeSeries,alarms,events. If none are specified, all supported message types will be batched",
+        "dataType": "string"
+      }
+    },
+    "retry": {
+      "maximum": {
+        "description": "Maximum execution time, in milliseconds, across all potential IoT Hub related retries",
+        "dataType": "integer",
+        "value": 300000,
+        "isMandatory": true
+      },
+      "normal": {
+        "initial": {
+          "description": "Initial retry interval for normal IoT Hub errors, in milliseconds",
+          "dataType": "integer",
+          "value": 100,
+          "isMandatory": true
+        },
+        "minimum": {
+          "description": "Minimum retry interval for normal IoT Hub errors, in milliseconds",
+          "dataType": "integer",
+          "value": 100,
+          "isMandatory": true
+        },
+        "maximum": {
+          "description": "Maximum interval between each retry for normal IoT Hub errors, in milliseconds",
+          "dataType": "integer",
+          "value": 10000,
+          "isMandatory": true
+        }
+      },
+      "throttled": {
+        "initial": {
+          "description": "Initial interval for throttled IoT Hub errors, in milliseconds",
+          "dataType": "integer",
+          "value": 5000,
+          "isMandatory": true
+        },
+        "minimum": {
+          "description": "Minimum retry interval for throttled IoT Hub errors, in milliseconds",
+          "dataType": "integer",
+          "value": 10000,
+          "isMandatory": true
+        },
+        "maximum": {
+          "description": "Maximum interval between each retry for throttled IoT Hub errors, in milliseconds",
+          "dataType": "integer",
+          "value": 60000,
+          "isMandatory": true
+        }
+      }
+    },
+    "files": {
+      "upload": {
+        "concurrent": {
+          "description": "Maximum concurrent file uploads. Uploads share IoT Hub retry policy",
+          "dataType": "integer",
+          "isMandatory": true,
+          "value": 10
+        }
+      },
+      "download": {
+        "concurrent": {
+          "description": "Maximum concurrent file downloads",
+          "dataType": "integer",
+          "isMandatory": true,
+          "value": 50
+        },
+        "count": {
+          "description": "Maximum retry count",
+          "dataType": "integer",
+          "minimum": 0,
+          "value": 3,
+          "isMandatory": true
+        },
+        "initial": {
+          "description": "Initial retry interval, in milliseconds",
+          "dataType": "integer",
+          "minimum": 0,
+          "value": 30000,
+          "isMandatory": true
+        },
+        "minimum": {
+          "description": "Minimum retry interval, in milliseconds",
+          "dataType": "integer",
+          "minimum": 0,
+          "value": 3000,
+          "isMandatory": true
+        },
+        "maximum": {
+          "description": "Maximum interval between each retry, in milliseconds",
+          "dataType": "integer",
+          "minimum": 0,
+          "value": 90000,
+          "isMandatory": true
+        }
+      }
+    },
+    "logger": {
+      "level": {
+        "description": "Logger level",
+        "dataType": "string",
+        "enum": [
+          "error",
+          "warn",
+          "info",
+          "verbose",
+          "debug",
+          "silly"
+        ],
+        "value": "info",
+        "isMandatory": true
+      }
+    }
+  }
+}

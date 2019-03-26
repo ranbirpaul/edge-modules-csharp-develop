@@ -1,0 +1,9 @@
+FROM microsoft/dotnet:2.1-runtime AS base
+# If you need to use a proxy to connect to the internet, put it uncomment the line below and put your proxy server
+# ENV http_proxy http://access505.cws.sco.cisco.com:8080/
+RUN apt-get update && \
+    apt-get install -y unzip curl && \
+    curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg
+ARG EXE_DIR=.
+COPY ${EXE_DIR}/bin/Debug/netcoreapp2.1/publish/* /cst-csharp-files-upload/
+ENTRYPOINT ["dotnet", "/cst-csharp-files-upload/ABB.Ability.IotEdge.CST.Modules.CSharp.FileStorage.dll"]

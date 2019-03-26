@@ -1,0 +1,154 @@
+{
+  "model": "abb.ability.device",
+  "typeId": "abb.ability.device.edge.sample",
+  "version": "4.0.0",
+  "description": "Copy of 'abb.ability.device.edge' type + specific module types + updated related configuration model",
+  "unique": [
+    "deviceId"
+  ],
+  "properties": {
+    "hubName": {
+      "description": "IoT hub host name",
+      "dataType": "string",
+      "isMandatory": true
+    },
+    "deviceId": {
+      "description": "IoT hub device identifier",
+      "dataType": "string",
+      "isMandatory": true
+    },
+    "modules": {
+      "dataType": "map",
+      "values": {
+        "pending": {
+          "device": {
+            "type": {
+              "description": "For typed modules - currently deployed type",
+              "dataType": "string"
+            },
+            "correlationId": {
+              "dataType": "string"
+            }
+          }
+        },
+        "objectId": {
+          "description": "For typed modules - associated objectId",
+          "dataType": "string"
+        },
+        "type": {
+          "description": "For typed modules - currently deployed type",
+          "dataType": "string"
+        },
+        "configuration": {
+          "description": "Currently deployed configuration version",
+          "dataType": "integer"
+        },
+        "error": {
+          "description": "If latest configuration could not be applied successfully, error details will be reported here",
+          "dataType": "string"
+        }
+      }
+    },
+    "systemModules": {
+      "dataType": "map",
+      "values": {
+        "configuration": {
+          "description": "Currently deployed configuration version",
+          "dataType": "integer"
+        },
+        "error": {
+          "description": "If latest configuration could not be applied successfully, error details will be reported here",
+          "dataType": "string"
+        }
+      }
+    },
+    "OS": {
+      "type": {
+        "description": "OS type",
+        "dataType": "string"
+      }
+    },
+    "memory": {
+      "size": {
+        "description": "Total memory size for the edge",
+        "dataType": "number",
+        "unit": "GB"
+      }
+    },
+    "storage": {
+      "size": {
+        "description": "Total storage size for the edge",
+        "dataType": "number",
+        "unit": "GB"
+      }
+    },
+    "processor": {
+      "speed": {
+        "dataType": "number",
+        "unit": "GHz"
+      },
+      "type": {
+        "dataType": "string"
+      }
+    },
+    "configuration": {
+      "description": "Current configuration version",
+      "dataType": "integer"
+    }
+  },
+  "variables": {
+    "heartbeat": {
+      "description": "epoch time of the last heartbeat",
+      "dataType": "integer"
+    },
+    "utilization": {
+      "cpu": {
+        "dataType": "number",
+        "unit": "%"
+      },
+      "memory": {
+        "dataType": "number",
+        "unit": "%"
+      },
+      "storage": {
+        "dataType": "number",
+        "unit": "%"
+      }
+    }
+  },
+  "attributes": {
+    "unit": {
+      "dataType": "string",
+      "appliesTo": [
+        "number"
+      ]
+    }
+  },
+  "methods": {
+    "restartModules": {
+      "description": "Restarts specified modules",
+      "input": {
+        "names": {
+          "dataType": "array",
+          "items": "string"
+        }
+      }
+    }
+  },
+  "references": {
+    "modules": {
+      "isHierarchical": true,
+      "isContainment": true,
+      "to": [
+        {
+          "type": "abb.ability.device.edge.modules.csharp.sample@4"
+        }
+      ]
+    }
+  },
+  "relatedModels": {
+    "abb.ability.configuration": {
+      "type": "abb.ability.configuration.edge.sample@4"
+    }
+  }
+}

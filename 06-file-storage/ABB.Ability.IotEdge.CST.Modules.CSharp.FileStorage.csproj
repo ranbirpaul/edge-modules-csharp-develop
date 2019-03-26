@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>ABB.Ability.IotEdge.CST.Modules.CSharp.FileStorage</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\common\ABB.Ability.IotEdge.CST.Modules.CSharp.Common\ABB.Ability.IotEdge.CST.Modules.CSharp.Common.csproj" />
+  </ItemGroup>
+</Project>

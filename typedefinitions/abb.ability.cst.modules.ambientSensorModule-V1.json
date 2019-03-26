@@ -1,0 +1,56 @@
+{
+  "model": "abb.ability.device",
+  "typeId": "abb.ability.cst.modules.ambientSensorModule",
+  "version": "1.0.0",
+  "name": "AmbientSensor's Edge Module",
+  "description": "Edge module acting as a gateway between Ambient Sensor device and Ability Platform.",
+  "variables": {
+    "docker": {
+      "image": {
+        "description": "Docker image of this module. Reported by the edge runtime",
+        "dataType": "string"
+      },
+      "state": {
+        "description": "Runtime state of this module. Reported by the edge runtime",
+        "dataType": "string",
+        "enum": [
+          "running",
+          "stopped"
+        ]
+      }
+    }
+  },
+  "events": {
+    "moduleStarted": {
+      "description": "Emitted when the module is started.",
+      "payload": {
+        "startTimeUtc": {
+          "dataType": "string"
+        }
+      }
+    },
+    "moduleStopped": {
+      "description": "Emitted when the module is stopped.",
+      "payload": {
+        "stopTimeUtc": {
+          "dataType": "string"
+        }
+      }
+    }
+  },
+  "relatedModels": {
+    "abb.ability.configuration": {
+      "type": "abb.ability.cst.modules.ambientSensorModuleConfiguration@1"
+    }
+  },
+  "references": {
+    "sensor": {
+      "isHierarchical": true,
+      "to": [
+        {
+          "type": "abb.ability.cst.devices.ambientSensor@1"
+        }
+      ]
+    }
+  }
+}

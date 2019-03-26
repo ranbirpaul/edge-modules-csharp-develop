@@ -1,0 +1,110 @@
+{
+  "model": "abb.ability.device",
+  "typeId": "abb.ability.cst.devices.edgeGateway",
+  "version": "1.0.0",
+  "name": "Edge Gateway",
+  "description": "Edge Gateway model based on implementation provided in Ability repository.",
+  "properties": {
+    "hubName": {
+      "description": "IoT hub host name",
+      "dataType": "string",
+      "mandatory": true
+    },
+    "deviceId": {
+      "description": "IoT hub device identifier",
+      "dataType": "string",
+      "mandatory": true
+    },
+    "modules": {
+      "description": "Snapshot of currently deployed module configuration versions",
+      "dataType": "map",
+      "values": {
+				"dataType": "integer"
+			}
+    },
+    "systemModules": {
+      "description": "Snapshot of currently deployed system module configuration versions",
+      "dataType": "map",
+      "values": {
+				"dataType": "integer"
+			}
+    },
+    "OS": {
+      "type": {
+        "description": "OS type",
+        "dataType": "string"
+      }
+    },
+    "memory": {
+      "size": {
+        "description": "Total memory size for the edge",
+        "dataType": "number"
+      }
+    },
+    "storage": {
+      "size": {
+        "description": "Total storage size for the edge",
+        "dataType": "number"
+      }
+    },
+    "processor": {
+      "speed": {
+        "dataType": "number"
+      },
+      "type": {
+        "dataType": "string"
+      }
+    },
+    "configuration": {
+      "description": "Current configuration version",
+      "dataType": "integer"
+    }
+  },
+  "variables": {
+    "heartbeat": {
+      "description": "epoch time of the last heartbeat",
+      "dataType": "integer"
+    },
+    "utilization": {
+      "cpu": {
+        "dataType": "number",
+        "unit": "%"
+      },
+      "memory": {
+        "dataType": "number",
+        "unit": "%"
+      },
+      "storage": {
+        "dataType": "number",
+        "unit": "%"
+      }
+    }
+  },
+  "relatedModels": {
+    "abb.ability.configuration": {
+      "type": "abb.ability.cst.devices.edgeGatewayConfiguration@1"
+    }
+  },
+  "references": {
+    "modules": {
+      "isHierarchical": true,
+      "isContainment": true,
+      "to": [
+        {
+          "type": "abb.ability.cst.modules.ambientSensorModule@1",
+          "min": 1
+        }
+      ]
+    }
+  },
+  "attributes": {
+    "unit": {
+      "dataType": "string",
+      "appliesTo": [
+        "number",
+        "integer",
+        "array"
+      ]
+    }
+  }
+}

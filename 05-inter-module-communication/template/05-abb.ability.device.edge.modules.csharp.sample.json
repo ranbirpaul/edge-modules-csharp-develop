@@ -1,0 +1,67 @@
+{
+  "model": "abb.ability.device",
+  "typeId": "abb.ability.device.edge.modules.csharp.sample",
+  "version": "5.0.0",
+  "unique": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "description": "Name of this module (in the context of the edge device)",
+      "dataType": "string",
+      "value": "csharpmodule/module",
+      "isMandatory": true
+    },
+    "isRunning": {
+      "dataType": "boolean"
+    }
+  },
+  "variables": {
+    "docker": {
+      "image": {
+        "description": "Docker image of this module. Reported by the edge runtime",
+        "dataType": "string"
+      },
+      "state": {
+        "description": "Runtime state of this module. Reported by the edge runtime",
+        "dataType": "string",
+        "enum": [
+          "running",
+          "stopped"
+        ]
+      }
+    }
+  },
+  "methods": {
+    "start": {
+      "description": "Start sending simulating telemetry messages",
+      "input": {
+        "interval": {
+          "description": "Interval, in seconds, between telemetry messages",
+          "dataType": "integer"
+        }
+      }
+    },
+    "stop": {
+      "description": "Stop sending simulating telemetry messages"
+    }
+  },
+  "relatedModels": {
+    "abb.ability.configuration": {
+      "type": "abb.ability.configuration.edge.modules.csharp.sample@5",
+      "uniqueMapping": {
+        "name": "name"
+      }
+    }
+  },
+  "references": {
+    "devices": {
+      "isHierarchical": true,
+      "to": [
+        {
+          "type": "abb.ability.device.cst.environment.sensor@1"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "model": "abb.ability.configuration",
+  "typeId": "abb.ability.cst.modules.ambientSensorModuleConfiguration",
+  "version": "1.0.0",
+  "name": "Ambient Sensor's Edge Module's configuration",
+  "description": "Configuration model of abb.ability.cst.modules.ambientSensorModule",
+  "properties": {
+    "docker": {
+      "env": {
+        "description": "Map of environment variables to pass to the module",
+        "dataType": "map",
+        "values": {
+          "dataType": "string"
+        }
+      },
+      "replicas": {
+        "description": "How many replicas of this module should be created",
+        "dataType": "integer",
+        "minimum": 1
+      },
+      "image": {
+        "description": "Docker image of this module",
+        "dataType": "string",
+        "value": "cstAmbientSensorModule:latest",
+        "mandatory": true
+      }
+    }
+  },
+  "attributes": {
+    "minimum": {
+      "dataType": "number",
+      "appliesTo": [
+        "number",
+        "integer",
+        "array"
+      ]
+    }
+  }
+}

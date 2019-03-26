@@ -1,0 +1,123 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28306.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-send-telemetry", "01-send-telemetry", "{91F14322-30DB-450F-B032-E911A1F9428F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-remote-commands", "03-remote-commands", "{C309F514-BBF1-40E6-9F6E-F5A1672001C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-configurable", "04-configurable", "{DB3ED7F4-C02B-4F14-A9B2-15BB283D5809}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-inter-module-communication", "05-inter-module-communication", "{2793C8A0-8CAE-4678-B24C-777188D60D43}"
+	ProjectSection(SolutionItems) = preProject
+		05-inter-module-communication\build-modules.sh = 05-inter-module-communication\build-modules.sh
+		05-inter-module-communication\custom-modules.sh = 05-inter-module-communication\custom-modules.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Telemetry", "Telemetry", "{AB54675A-5349-488F-A3EA-4567CDE552C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aggregator", "Aggregator", "{85A472DF-5AAE-4977-B598-88BAFD01E07F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ABB.Ability.IotEdge.CST.Modules.CSharp.InterModuleCommunication.Aggregator", "05-inter-module-communication\Aggregator\ABB.Ability.IotEdge.CST.Modules.CSharp.InterModuleCommunication.Aggregator.csproj", "{17BFFF2D-E27F-496D-B73F-D257AB7F5570}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ABB.Ability.IotEdge.CST.Modules.CSharp.InterModuleCommunication.Telemetry", "05-inter-module-communication\Telemetry\ABB.Ability.IotEdge.CST.Modules.CSharp.InterModuleCommunication.Telemetry.csproj", "{58B76B4E-F087-4C9C-AD28-E718EF503102}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ABB.Ability.IotEdge.CST.Modules.CSharp.SendTelemetry", "01-send-telemetry\ABB.Ability.IotEdge.CST.Modules.CSharp.SendTelemetry.csproj", "{5860AC1F-F93E-434D-BD2C-0FB20A3855DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ABB.Ability.IotEdge.CST.Modules.CSharp.Configurable", "04-configurable\ABB.Ability.IotEdge.CST.Modules.CSharp.Configurable.csproj", "{3849C355-F540-425D-9588-46B52F2C1683}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-events-alarms", "02-events-alarms", "{EE9B29E2-A9DB-4181-A9C4-40BD4B77B114}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ABB.Ability.IotEdge.CST.Modules.CSharp.EventsAlarms", "02-events-alarms\ABB.Ability.IotEdge.CST.Modules.CSharp.EventsAlarms.csproj", "{CBD1DD32-B2C5-48CE-872F-800731832140}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template", "Template", "{5F95CD22-88E4-4F67-B1BC-7E17DA7DE85E}"
+	ProjectSection(SolutionItems) = preProject
+		05-inter-module-communication\Template\01-abb.ability.configuration.edge.modules.csharp.aggregator.sample.json = 05-inter-module-communication\Template\01-abb.ability.configuration.edge.modules.csharp.aggregator.sample.json
+		05-inter-module-communication\Template\02-abb.ability.configuration.edge.modules.csharp.sample.json = 05-inter-module-communication\Template\02-abb.ability.configuration.edge.modules.csharp.sample.json
+		05-inter-module-communication\Template\03-abb.ability.configuration.edge.sample.json = 05-inter-module-communication\Template\03-abb.ability.configuration.edge.sample.json
+		05-inter-module-communication\Template\04-abb.ability.device.edge.modules.csharp.aggregator.sample.json = 05-inter-module-communication\Template\04-abb.ability.device.edge.modules.csharp.aggregator.sample.json
+		05-inter-module-communication\Template\05-abb.ability.device.edge.modules.csharp.sample.json = 05-inter-module-communication\Template\05-abb.ability.device.edge.modules.csharp.sample.json
+		05-inter-module-communication\Template\06-abb.ability.device.edge.sample.json = 05-inter-module-communication\Template\06-abb.ability.device.edge.sample.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ABB.Ability.IotEdge.CST.Modules.CSharp.RemoteCommands", "03-remote-commands\ABB.Ability.IotEdge.CST.Modules.CSharp.RemoteCommands.csproj", "{D2158E8F-7B99-494C-8010-5C97D14467C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{E18D8F99-4C51-4C4B-B161-11FDA0FEC88B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ABB.Ability.IotEdge.CST.Modules.CSharp.Common", "common\ABB.Ability.IotEdge.CST.Modules.CSharp.Common\ABB.Ability.IotEdge.CST.Modules.CSharp.Common.csproj", "{F11EB424-D41C-4E6B-B1A1-5B43FF44AC6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ABB.Ability.IotEdge.CST.Modules.CSharp.FileStorage", "06-file-storage\ABB.Ability.IotEdge.CST.Modules.CSharp.FileStorage.csproj", "{5673B8FA-68A0-4713-88C8-BC80AB716B2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06-files-upload", "06-files-upload", "{E6F2A3D5-2883-42C2-8F5B-5F5D3C60572C}"
+EndProject
+Project("{34036844-64E7-43A5-9151-4AD90E180989}") = "AzureIotEdgeApp1.Windows.Amd64", "AzureIotEdgeApp1.Windows.Amd64\AzureIotEdgeApp1.Windows.Amd64.iotedgeproj", "{4BC44F9D-40B9-450C-B521-D3A3F3331FDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendIOTTelemetryModule", "SendIOTTelemetryModule\SendIOTTelemetryModule.csproj", "{77258A41-AA4D-4E61-A91B-882CFFF095EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17BFFF2D-E27F-496D-B73F-D257AB7F5570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17BFFF2D-E27F-496D-B73F-D257AB7F5570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17BFFF2D-E27F-496D-B73F-D257AB7F5570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17BFFF2D-E27F-496D-B73F-D257AB7F5570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B76B4E-F087-4C9C-AD28-E718EF503102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B76B4E-F087-4C9C-AD28-E718EF503102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B76B4E-F087-4C9C-AD28-E718EF503102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B76B4E-F087-4C9C-AD28-E718EF503102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5860AC1F-F93E-434D-BD2C-0FB20A3855DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5860AC1F-F93E-434D-BD2C-0FB20A3855DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5860AC1F-F93E-434D-BD2C-0FB20A3855DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5860AC1F-F93E-434D-BD2C-0FB20A3855DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3849C355-F540-425D-9588-46B52F2C1683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3849C355-F540-425D-9588-46B52F2C1683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3849C355-F540-425D-9588-46B52F2C1683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3849C355-F540-425D-9588-46B52F2C1683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBD1DD32-B2C5-48CE-872F-800731832140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBD1DD32-B2C5-48CE-872F-800731832140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBD1DD32-B2C5-48CE-872F-800731832140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBD1DD32-B2C5-48CE-872F-800731832140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2158E8F-7B99-494C-8010-5C97D14467C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2158E8F-7B99-494C-8010-5C97D14467C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2158E8F-7B99-494C-8010-5C97D14467C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2158E8F-7B99-494C-8010-5C97D14467C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F11EB424-D41C-4E6B-B1A1-5B43FF44AC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F11EB424-D41C-4E6B-B1A1-5B43FF44AC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F11EB424-D41C-4E6B-B1A1-5B43FF44AC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F11EB424-D41C-4E6B-B1A1-5B43FF44AC6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5673B8FA-68A0-4713-88C8-BC80AB716B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5673B8FA-68A0-4713-88C8-BC80AB716B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5673B8FA-68A0-4713-88C8-BC80AB716B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5673B8FA-68A0-4713-88C8-BC80AB716B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BC44F9D-40B9-450C-B521-D3A3F3331FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC44F9D-40B9-450C-B521-D3A3F3331FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC44F9D-40B9-450C-B521-D3A3F3331FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC44F9D-40B9-450C-B521-D3A3F3331FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77258A41-AA4D-4E61-A91B-882CFFF095EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77258A41-AA4D-4E61-A91B-882CFFF095EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77258A41-AA4D-4E61-A91B-882CFFF095EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77258A41-AA4D-4E61-A91B-882CFFF095EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB54675A-5349-488F-A3EA-4567CDE552C6} = {2793C8A0-8CAE-4678-B24C-777188D60D43}
+		{85A472DF-5AAE-4977-B598-88BAFD01E07F} = {2793C8A0-8CAE-4678-B24C-777188D60D43}
+		{17BFFF2D-E27F-496D-B73F-D257AB7F5570} = {85A472DF-5AAE-4977-B598-88BAFD01E07F}
+		{58B76B4E-F087-4C9C-AD28-E718EF503102} = {AB54675A-5349-488F-A3EA-4567CDE552C6}
+		{5860AC1F-F93E-434D-BD2C-0FB20A3855DA} = {91F14322-30DB-450F-B032-E911A1F9428F}
+		{3849C355-F540-425D-9588-46B52F2C1683} = {DB3ED7F4-C02B-4F14-A9B2-15BB283D5809}
+		{CBD1DD32-B2C5-48CE-872F-800731832140} = {EE9B29E2-A9DB-4181-A9C4-40BD4B77B114}
+		{5F95CD22-88E4-4F67-B1BC-7E17DA7DE85E} = {2793C8A0-8CAE-4678-B24C-777188D60D43}
+		{D2158E8F-7B99-494C-8010-5C97D14467C5} = {C309F514-BBF1-40E6-9F6E-F5A1672001C9}
+		{F11EB424-D41C-4E6B-B1A1-5B43FF44AC6F} = {E18D8F99-4C51-4C4B-B161-11FDA0FEC88B}
+		{5673B8FA-68A0-4713-88C8-BC80AB716B2E} = {E6F2A3D5-2883-42C2-8F5B-5F5D3C60572C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {541FB1C0-5E12-4A75-BFA6-81A3B1EF1C74}
+	EndGlobalSection
+EndGlobal

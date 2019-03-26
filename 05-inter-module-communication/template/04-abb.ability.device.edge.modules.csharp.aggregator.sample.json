@@ -1,0 +1,67 @@
+{
+  "model": "abb.ability.device",
+  "typeId": "abb.ability.device.edge.modules.csharp.aggregator.sample",
+  "version": "5.0.0",
+  "unique": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "description": "Name of this module (in the context of the edge device)",
+      "dataType": "string",
+      "value": "aggregatorModule/module",
+      "isMandatory": true
+    },
+    "isRunning": {
+      "dataType": "boolean"
+    }
+  },
+  "variables": {
+    "docker": {
+      "image": {
+        "description": "Docker image of this module. Reported by the edge runtime",
+        "dataType": "string"
+      },
+      "state": {
+        "description": "Runtime state of this module. Reported by the edge runtime",
+        "dataType": "string",
+        "enum": [
+          "running",
+          "stopped"
+        ]
+      }
+    },
+    "averagetemperature": {
+      "description": "The average temperature reported by all devices in the past minute",
+      "dataType": "number"
+    },
+    "averagehumidity": {
+      "description": "The average humidity reported by all devices in the past minute",
+      "dataType": "number"
+    },
+    "averagepressure": {
+      "description": "The average pressure reported by all devices in the past minute",
+      "dataType": "number"
+    }
+  },
+  "methods": {
+  },
+  "relatedModels": {
+    "abb.ability.configuration": {
+      "type": "abb.ability.configuration.edge.modules.csharp.aggregator.sample@5",
+      "uniqueMapping": {
+        "name": "name"
+      }
+    }
+  },
+  "references": {
+    "devices": {
+      "isHierarchical": true,
+      "to": [
+        {
+          "type": "abb.ability.device.cst.environment.sensor@1"
+        }
+      ]
+    }
+  }
+}

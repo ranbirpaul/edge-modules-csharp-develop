@@ -1,0 +1,50 @@
+{
+  "model": "abb.ability.device",
+  "typeId": "abb.ability.device.cst.environment.sensor",
+  "version": "1.0.0",
+  "name": "Ambient Sensor",
+  "description": "CST simulated sensor device able to measure ambient weather conditions.",
+  "variables": {
+    "temperature": {
+      "dataType": "number",
+      "unit": "°C",
+      "description": "Temperature measured by the sensor."
+    },
+    "humidity": {
+      "dataType": "number",
+      "unit": "%",
+      "description": "Relative humidity measured by the sensor."
+    },
+    "pressure": {
+      "dataType": "number",
+      "unit": "hPa",
+      "description": "Pressure measured by the sensor."
+    },
+    "interval": {
+      "dataType": "number",
+      "unit": "s",
+      "description": "Interval of collecting measurements."
+    }
+  },
+  "properties": {
+    "serialNumber": {
+      "dataType": "string",
+      "description": "Unique serial number of a device",
+      "isUnique": true
+    },
+    "firmwareVersion": {
+      "dataType": "string",
+      "description": "Current firmware version"
+    }
+  },
+  "attributes": {
+    "unit": {
+      "dataType": "string",
+      "appliesTo": [
+        "number",
+        "integer",
+        "array"
+      ]
+    }
+  }
+}

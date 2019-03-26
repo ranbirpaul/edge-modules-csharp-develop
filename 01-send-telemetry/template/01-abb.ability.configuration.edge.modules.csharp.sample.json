@@ -1,0 +1,47 @@
+{
+  "model": "abb.ability.configuration",
+  "typeId": "abb.ability.configuration.edge.modules.csharp.sample",
+  "version": "1.0.0",
+  "unique": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "value": "csharpModule",
+      "description": "Name of this module (in the context of the edge device)",
+      "dataType": "string",
+      "isMandatory": true
+    },
+    "docker": {
+      "env": {
+        "dataType": "map",
+        "values": "string"
+      },
+      "replicas": {
+        "description": "How many replicas of this module should be created",
+        "dataType": "integer",
+        "minimum": 1
+      },
+      "image": {
+        "description": "Docker image of this module",
+        "dataType": "string",
+        "value": "abbability.azurecr.io/abb.ability.cst.edge.modules.image:latest",
+        "isMandatory": true
+      },
+      "password": {
+        "description": "Will force the MQTT password for debugging purpose. Don't use on production",
+        "dataType": "string",
+        "value": "edgeHelsinki",
+        "isMandatory": false
+      }
+    }
+  },
+  "attributes": {
+    "minimum": {
+      "dataType": "integer",
+      "appliesTo": [
+        "integer"
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/04-configurable/ABB.Ability.IotEdge.CST.Modules.CSharp.Configurable.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

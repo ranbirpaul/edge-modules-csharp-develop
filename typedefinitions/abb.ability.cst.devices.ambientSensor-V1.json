@@ -1,0 +1,40 @@
+{
+  "model": "abb.ability.device",
+  "typeId": "abb.ability.cst.devices.ambientSensor",
+  "version": "1.0.0",
+  "name": "Ambient Sensor",
+  "description": "Sensor device able to measure ambient weather conditions.",
+  "variables": {
+    "temperature": {
+      "dataType": "number",
+      "unit": "°C",
+      "description": "Temperature measured by the sensor."
+    },
+    "humidity": {
+      "dataType": "number",
+      "unit": "%",
+      "description": "Relative humidity measured by the sensor."
+    },
+    "pressure": {
+      "dataType": "number",
+      "unit": "hPa",
+      "description": "Pressure measured by the sensor."
+    }
+  },
+  "properties": {
+    "manufacturer": {
+      "dataType": "string",
+      "value": "ABB"
+    }
+  },
+  "attributes": {
+    "unit": {
+      "dataType": "string",
+      "appliesTo": [
+        "number",
+        "integer",
+        "array"
+      ]
+    }
+  }
+}
